@@ -39,10 +39,13 @@ $pdf->MultiCell(55, 10, "Invoice to: \n", 1, 'L', false);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Multicell(55, 10, $res[0]["nom"] . ' ' . $res[0]['prenom'] . "\n" . $res[0]["adresse"] . "\n" . $res[0]['ville'], 1, 'L', false);
 $pdf->setXY(140, 55);
-$pdf->Multicell(30, 10, "Invoice #\nDate : ", 1, 'L', false);
+$pdf->Multicell(30, 10, "Invoice \nDate : ", 1, 'L', false);
 $pdf->setXY(175, 55);
-$pdf->Multicell(30, 10, $res[0]["facture_id"] . "\n" . $res[0]["date"], 1, 'R', false);
-
+$pdf->Multicell(30, 10, "#".$res[0]["facture_id"] . "\n" . $res[0]["date"], 1, 'R', false);
+$pdf->setXY(210, 65);
+$pdf->Multicell(210, 5, "test1", 1, 'L', false);
+$pdf->setXY(210, 67);
+$pdf->Multicell(210, 5, "test2", 1, 'L', false);
 $pdf->Output();
 
 
