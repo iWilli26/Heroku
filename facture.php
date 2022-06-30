@@ -49,13 +49,13 @@ $pdf->SetLineWidth(0.7);
 $pdf->Rect(20, 105, 170, 15);
 $pdf->setXY(20, 105);
 $pdf->Multicell(170, 15, "SL.", 0, 'L', false);
-$pdf->setXY(40, 105);
+$pdf->setXY(50, 105);
 $pdf->Multicell(170, 15, "Item Description", 0, 'L', false);
-$pdf->setXY(110, 105);
+$pdf->setXY(120, 105);
 $pdf->Multicell(170, 15, "Price", 0, 'L', false);
-$pdf->setXY(130, 105);
-$pdf->Multicell(170, 15, "Qty,", 0, 'L', false);
-$pdf->setXY(150, 105);
+$pdf->setXY(145, 105);
+$pdf->Multicell(170, 15, "Qty.", 0, 'L', false);
+$pdf->setXY(170, 105);
 $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 
 
