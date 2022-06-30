@@ -25,6 +25,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 $res = $array_values;
+echo count($res);
 // echo $res[0]['nom'];
 $conn->close();
 require('fpdf.php');
