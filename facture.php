@@ -69,16 +69,16 @@ $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 //Remplissage du tableau
 for($i=0;$i<count($res);$i++){
     $pdf->setXY(20, 120+$i*15);
-    $pdf->SetFont('Arial', '', 12);
+    $pdf->SetFont('Arial', '', 8);
     $pdf->Multicell(170, 15, $i+1 ."", 0, 'L', false);
     $pdf->setXY(50, 120+$i*15);
     $pdf->Multicell(170, 15, $data[$i]["description"], 0, 'L', false);
     $pdf->setXY(120, 120+$i*15);
-    $pdf->Multicell(170, 15, $data[$i]["prix"]."", 0, 'L', false);
+    $pdf->Multicell(170, 15, $data[$i]["prix"], 0, 'L', false);
     $pdf->setXY(145, 120+$i*15);
-    $pdf->Multicell(170, 15, $data[$i]["quantite"]."", 0, 'L', false);
+    $pdf->Multicell(170, 15, $data[$i]["quantite"], 0, 'L', false);
     $pdf->setXY(170, 120+$i*15);
-    $pdf->Multicell(170, 15, $data[$i]["prix"]*$data[$i]["quantite"]."", 0, 'L', false);
+    $pdf->Multicell(170, 15, $data[$i]["prix"]*$data[$i]["quantite"], 0, 'L', false);
     $pdf->SetDrawColor(75, 75, 75);
     $pdf->SetLineWidth(0.5);
     $pdf->Line(20, 135+$i*15, 190, 135+$i*15);
