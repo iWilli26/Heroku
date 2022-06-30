@@ -26,16 +26,17 @@ if ($conn->connect_error) {
  
         $test = json_encode($array_values);
         $res = json_decode($test, true);
+        echo $res;
         $conn->close();
 
-require('fpdf.php');
-$pdf = new FPDF();
-$pdf->AddPage();
-$pdf->SetMargins(0, 0, 0);
-$pdf->SetFont('Arial', 'B', 11);
-$pdf->Image('./header.png', 0, 0, 210, 40);
-$pdf->Cell(210, 100, $res[0], 0, 1, 'C');
-$pdf->Output();
+// require('fpdf.php');
+// $pdf = new FPDF();
+// $pdf->AddPage();
+// $pdf->SetMargins(0, 0, 0);
+// $pdf->SetFont('Arial', 'B', 11);
+// $pdf->Image('./header.png', 0, 0, 210, 40);
+// $pdf->Cell(210, 100, $res[0], 0, 1, 'C');
+// $pdf->Output();
 
 
 $conn->close();
