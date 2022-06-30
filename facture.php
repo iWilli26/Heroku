@@ -32,7 +32,7 @@ require('fpdf.php');
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
-$pdf->SetFont('Arial', 'B', 25);
+$pdf->SetFont('Arial', 'B', 11);
 $pdf->Image('./header.png', 0, 0, 210, 40);
 $pdf->Cell(210, 100, $res, 0, 1, 'C');
 $pdf->Output();
