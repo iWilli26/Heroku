@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 const button = document.getElementById("button");
 button.addEventListener("click", function () {
     console.log("test");
