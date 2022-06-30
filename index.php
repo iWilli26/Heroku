@@ -9,10 +9,3 @@
 // $query_builder = TRUE;
 // // Connect to DB
 // $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-require('fpdf.php');
-
-$pdf = new FPDF();
-$pdf->AddPage();
-$pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Hello World !');
-$pdf->Output();
