@@ -53,6 +53,12 @@ $pdf->setXY(40, 105);
 $pdf->Multicell(170, 15, "Item Description", 0, 'L', false);
 $pdf->setXY(110, 105);
 $pdf->Multicell(170, 15, "Price", 0, 'L', false);
+$pdf->setXY(130, 105);
+$pdf->Multicell(170, 15, "Qty,", 0, 'L', false);
+$pdf->setXY(150, 105);
+$pdf->Multicell(170, 15, "Total", 0, 'L', false);
+
+
 $pdf->setXY(20, 120);
 $pdf->SetDrawColor(0, 0, 0);
 $pdf->Multicell(170, 15, "test2", 0, 'L', false);
@@ -63,4 +69,5 @@ $pdf->Line(20, 135, 190, 135);
 $pdf->Output();
 
 
+$conn->close();
 $conn->close();
