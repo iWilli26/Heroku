@@ -24,9 +24,8 @@ if ($conn->connect_error) {
             echo "0 results";
         }
  
-        $test = json_encode($array_values);
-        $res = json_decode($test, true);
-        echo $res;
+        $res = $array_values;
+        echo $res[0];
         $conn->close();
 
 // require('fpdf.php');
