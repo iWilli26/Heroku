@@ -68,9 +68,12 @@ $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 
 //Remplissage du tableau
 for($i=0;$i<count($res);$i++){
-    $pdf->setXY(20, 120+$i*15);
+    // $pdf->setXY(20, 120+$i*15);
+    // $pdf->SetFont('Arial', '', 12);
+    // $pdf->Multicell(170, 15, $i."", 0, 'L', false);
+    $pdf->setXY(20, 120);
     $pdf->SetFont('Arial', '', 12);
-    $pdf->Multicell(170, 15, $i."", 0, 'L', false);
+    $pdf->Multicell(170, 15, "bruh", 0, 'L', false);
 //     $this->setXY(50, 120+$i*15);
 //     $this->Multicell(170, 15, $data[$i]["description"], 0, 'L', false);
 //     $this->setXY(120, 120+$i*15);
