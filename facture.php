@@ -39,7 +39,7 @@ $pdf->MultiCell(55, 10, "Invoice to: \n",1, 'L', false);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Multicell(55,10, $res[0]["nom"].' '.$res[0]['prenom'] . "\n" . $res[0]["adresse"]."\n".$res[0]['ville'], 1, 'L', false);
 $pdf->setXY(140, 50);
-$pdf->Multicell(55,10, $res[0]["nom"].' '.$res[0]['prenom'] . "\n" . $res[0]["adresse"]."\n".$res[0]['ville'], 1, 'R', false);
+$pdf->Multicell(55,10,'Invoice #'. $res[0]["facture_id"] . "\nDate : " . $res[0]["date"], 1, 'R', false);
 $pdf->Output();
 
 
