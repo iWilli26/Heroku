@@ -35,7 +35,7 @@ $pdf->SetMargins(0, 0, 0);
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->Image('./header.png', 0, 0, 210, 40);
 $pdf->SetXY(0, 40);
-$pdf->MultiCell(40, 10, "Invoice to: \n" . $res[0]["nom"].' '.$res[0]['prenom'] . "\n " . $res[0]["adresse"], 1, 'L', false);
+$pdf->MultiCell(55, 10, "Invoice to: \n" . $res[0]["nom"].' '.$res[0]['prenom'] . "\n" . $res[0]["adresse"], 1, 'L', false);
 $pdf->Output();
 
 
