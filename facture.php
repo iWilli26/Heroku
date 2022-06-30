@@ -33,14 +33,14 @@ $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
 $pdf->SetFont('Arial', 'B', 16);
-$pdf->Image('./header.png', 0, 0, 210, 35);
-$pdf->SetXY(0, 35);
+$pdf->Image('./header.png', 0, 0, 210, 45);
+$pdf->SetXY(0, 45);
 $pdf->MultiCell(55, 10, "Invoice to: \n", 1, 'L', false);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Multicell(55, 10, $res[0]["nom"] . ' ' . $res[0]['prenom'] . "\n" . $res[0]["adresse"] . "\n" . $res[0]['ville'], 1, 'L', false);
-$pdf->setXY(140, 45);
+$pdf->setXY(140, 55);
 $pdf->Multicell(30, 10, "Invoice #\nDate : ", 1, 'L', false);
-$pdf->setXY(175, 45);
+$pdf->setXY(175, 55);
 $pdf->Multicell(30, 10, $res[0]["facture_id"] . "\n" . $res[0]["date"], 1, 'R', false);
 
 $pdf->Output();
