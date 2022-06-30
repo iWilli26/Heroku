@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
         $id = $_GET['id'];
-        $sql = "SELECT * FROM achats, products,facture WHERE facture.facture_id = " . $_GET['id'] . " AND facture.user_id=achats.user_id AND facture.date=achats.date AND achats.products_id=products.products_id";
+        $sql = "SELECT * FROM achats, products,facture,user WHERE facture.facture_id = " . $_GET['id'] . " AND facture.user_id=achats.user_id AND facture.date=achats.date AND achats.products_id=products.products_id AND facture.user_id=user.user_id";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -25,17 +25,17 @@ if ($conn->connect_error) {
         }
  
         $res = $array_values;
-        echo $res[0]['nom'];
+        // echo $res[0]['nom'];
         $conn->close();
 
-// require('fpdf.php');
-// $pdf = new FPDF();
-// $pdf->AddPage();
-// $pdf->SetMargins(0, 0, 0);
-// $pdf->SetFont('Arial', 'B', 11);
-// $pdf->Image('./header.png', 0, 0, 210, 40);
-// $pdf->Cell(210, 100, $res[0], 0, 1, 'C');
-// $pdf->Output();
+require('fpdf.php');
+$pdf = new FPDF();
+$pdf->AddPage();
+$pdf->SetMargins(0, 0, 0);
+$pdf->SetFont('Arial', 'B', 11);
+$pdf->Image('./header.png', 0, 0, 210, 40);
+$pdf->MultiCell(10, 60, 'Invoice to: \n'. $res[0]["nom"]. '\n '.$res[0]["adresse"], 1);
+$pdf->Output();
 
 
 $conn->close();
