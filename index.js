@@ -1,5 +1,5 @@
 const button = document.getElementById("test");
-button.addEventListener("click", function () {
+button.addEventListener("click", ()=>{
     console.log("test");
     $.ajax({
         method: "GET",
