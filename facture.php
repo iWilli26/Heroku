@@ -34,7 +34,8 @@ $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->Image('./header.png', 0, 0, 210, 40);
-$pdf->MultiCell(100, 60, 'Invoice to: \n' . $res[0]["nom"] . '\n ' . $res[0]["adresse"], 1);
+$pdf->SetXY(0, 40);
+$pdf->MultiCell(100, 60, "Invoice to: \n" . $res[0]["nom"] . "\n " . $res[0]["adresse"], 1);
 $pdf->Output();
 
 
