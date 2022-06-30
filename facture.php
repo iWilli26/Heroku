@@ -44,17 +44,17 @@ $pdf->Multicell(30, 10, "Invoice :\nDate : ", 1, 'L', false);
 $pdf->setXY(175, 65);
 $pdf->Multicell(30, 10, "#" . $res[0]["facture_id"] . "\n" . $res[0]["date"], 1, 'R', false);
 $pdf->setXY(20, 105);
-$pdf->SetDrawColor(0, 112, 122);
-$pdf->SetLineWidth(5);
+$pdf->SetDrawColor(0, 150, 150);
+$pdf->SetLineWidth(1);
 $pdf->Rect(20, 105, 170, 15);
 $pdf->setXY(25, 105);
 $pdf->Multicell(170, 10, "SL.", 0, 'L', false);
 $pdf->setXY(20, 120);
 $pdf->SetDrawColor(0, 0, 0);
 $pdf->Multicell(170, 15, "test2", 0, 'L', false);
-$pdf->SetDrawColor(255,0,0);
-$pdf->SetLineWidth(3);
-$pdf->Line(20, 125, 190, 125);
+$pdf->SetDrawColor(255, 0, 0);
+$pdf->SetLineWidth(0.5);
+$pdf->Line(20, 135, 190, 135);
 
 $pdf->Output();
 
