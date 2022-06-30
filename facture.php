@@ -37,7 +37,7 @@ $pdf->Image('./header.png', 0, 0, 210, 45);
 $pdf->SetXY(20, 55);
 $pdf->MultiCell(55, 10, "Invoice to: \n", 0, 'L', false);
 $pdf->SetFont('Arial', '', 12);
-$pdf->SetXY(20, 65);
+$pdf->SetXY(20, 60);
 $pdf->Multicell(55, 10, $res[0]["nom"] . ' ' . $res[0]['prenom']);
 $pdf->SetXY(20, 70);
 $pdf->SetFont('Arial', '', 9);
