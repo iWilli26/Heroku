@@ -12,8 +12,7 @@ $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $c
 if ($conn->connect_error) {
     die("Connection to database failed: " . $conn->connect_error);
 }
-switch ($_SERVER["REQUEST_METHOD"]) {
-    case 'GET':
+
         $id = $_GET['id'];
         $sql = "SELECT * FROM achats, products,facture WHERE facture.facture_id = " . $_GET['id'] . " AND facture.user_id=achats.user_id AND facture.date=achats.date AND achats.products_id=products.products_id";
         $result = mysqli_query($conn, $sql);
@@ -27,6 +26,6 @@ switch ($_SERVER["REQUEST_METHOD"]) {
  
         echo json_encode($array_values);
         $conn->close();
-        break;
-    }
+
+    
 ?>
