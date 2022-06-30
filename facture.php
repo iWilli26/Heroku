@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 $res = $array_values;
-echo "$res[0]['nom']";
+
 $conn->close();
 require('fpdf.php');
 $pdf = new FPDF();
@@ -70,13 +70,13 @@ $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 for($i=0;$i<count($data);$i++){
     $this->setXY(20, 120+$i*15);
     $this->SetFont('Arial', '', 12);
-    $this->Multicell(170, 15, $i, 0, 'L', false);
+    $this->Multicell(170, 15, $i."", 0, 'L', false);
     $this->setXY(50, 120+$i*15);
     $this->Multicell(170, 15, $data[$i]["description"], 0, 'L', false);
     $this->setXY(120, 120+$i*15);
     $this->Multicell(170, 15, $data[$i]["prix"]."€", 0, 'L', false);
     $this->setXY(145, 120+$i*15);
-    $this->Multicell(170, 15, $data[$i]["quantite"], 0, 'L', false);
+    $this->Multicell(170, 15, $data[$i]["quantite"]."", 0, 'L', false);
     $this->setXY(170, 120+$i*15);
     $this->Multicell(170, 15, $data[$i]["prix"]*$data[$i]["quantite"]."€", 0, 'L', false);
     $this->SetDrawColor(75, 75, 75);
