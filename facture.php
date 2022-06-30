@@ -48,9 +48,9 @@ $pdf->SetDrawColor(0, 112, 122);
 $pdf->Rect(20, 105, 170, 15);
 $pdf->setXY(25, 105);
 $pdf->Multicell(170, 10, "SL.", 0, 'L', false);
-$pdf->setXY(20, 115);
+$pdf->setXY(20, 120);
 $pdf->SetDrawColor(0, 0, 0);
-$pdf->Multicell(170, 15, "test2", 1, 'L', false);
+$pdf->Multicell(170, 15, "test2", 0, 'L', false);
 $pdf->SetDrawColor(255,0,0);
 $pdf->Line(20, 125, 190, 125);
 
