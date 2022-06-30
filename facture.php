@@ -52,7 +52,7 @@ $pdf->setXY(20, 115);
 $pdf->SetDrawColor(0, 0, 0);
 $pdf->Multicell(170, 15, "test2", 1, 'L', false);
 $pdf->SetDrawColor(255,0,0);
-$pdf->Rect(20, 125, 170, 1);
+$pdf->Line(20, 125, 170, 1);
 
 $pdf->Output();
 
