@@ -1,5 +1,5 @@
 <?php
-$host         = "localhost";
+$host         = "root";
 $username     = "root";
 $password     = "";
 $dbname       = "heroku";
