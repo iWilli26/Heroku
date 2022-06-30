@@ -9,7 +9,9 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
+if ($conn->connect_error) {
+    die("Connection to database failed: " . $conn->connect_error);
+}
 switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
         $sql = "SELECT * FROM user";
