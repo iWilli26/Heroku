@@ -25,7 +25,7 @@ if ($conn->connect_error) {
         }
  
         $res = json_encode($array_values);
-        echo $res;
+        // echo $res;
         $conn->close();
 
 require('fpdf.php');
