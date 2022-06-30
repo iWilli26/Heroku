@@ -33,7 +33,7 @@ $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
 $pdf->SetFont('Arial', 'B', 16);
-$pdf->Image('./header.png', 0, 0, 210, 40);
+// $pdf->Image('./header.png', 0, 0, 210, 40);
 $pdf->SetXY(0, 40);
 $pdf->MultiCell(55, 10, "Invoice to: \n", 1, 'L', false);
 $pdf->SetFont('Arial', '', 12);
