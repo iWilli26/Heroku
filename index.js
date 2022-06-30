@@ -1,4 +1,4 @@
-const button = document.getElementById("button");
+const button = document.getElementById("test");
 button.addEventListener("click", function () {
     console.log("test");
     $.ajax({
