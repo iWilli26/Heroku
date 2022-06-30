@@ -6,5 +6,12 @@ button.addEventListener("click", function () {
         url: "./backend2.php",
     }).done(function (data) {
         console.log(data);
-    })
+    });
+
+    $.ajax({
+        method: "GET",
+        url: "./backend.php",
+    }).done(function (data) {
+        console.log(data);
+    });
 });
