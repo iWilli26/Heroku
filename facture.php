@@ -1,11 +1,11 @@
 <?php
-$host         = "root";
+$host         = "127.0.0.1";
 $username     = "root";
 $password     = "";
 $dbname       = "heroku";
 $conn = mysqli_connect($host, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Connection to database failed: " . $conn->connect_error);
+    echo 'fuck';
 }
 $sql = "SELECT * FROM achats, products,facture WHERE facture.facture_id= 1 AND facture.user_id=achats.user_id AND facture.date=achats.date AND achats.products_id=products.products_id";
 $result = mysqli_query($conn, $sql);
