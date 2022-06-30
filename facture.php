@@ -25,7 +25,7 @@ if ($conn->connect_error) {
         }
  
         $res = $array_values;
-        echo $res[0];
+        echo $res[0]['nom'];
         $conn->close();
 
 // require('fpdf.php');
