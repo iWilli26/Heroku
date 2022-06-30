@@ -1,5 +1,5 @@
 const axios = require("axios");
-const button = document.getElementById("button");
+const button = document.getElementByCLass("button");
 button.addEventListener("click", function () {
     console.log("test");
     axios.get("./backend.php").then((resp) => {
