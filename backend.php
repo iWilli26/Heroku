@@ -24,8 +24,6 @@ if ($conn->connect_error) {
             echo "0 results";
         }
  
-        echo json_encode($array_values);
+       $res = json_encode($array_values);
+       echo $res;
         $conn->close();
-
-    
-?>
