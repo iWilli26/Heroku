@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
         $id = $_GET['id'];
-        $sql = "SELECT * FROM achats, products,facture WHERE facture.facture_id= '.$id.' AND facture.user_id=achats.user_id AND facture.date=achats.date AND achats.products_id=products.products_id";
+        $sql = "SELECT * FROM achats, products,facture WHERE facture.facture_id = " . $_GET['id'] . " AND facture.user_id=achats.user_id AND facture.date=achats.date AND achats.products_id=products.products_id";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -24,7 +24,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         } else {
             echo "0 results";
         }
-
+ 
         echo json_encode($array_values);
         $conn->close();
         break;
