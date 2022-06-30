@@ -3,7 +3,7 @@ button.addEventListener("click", function () {
     console.log("test");
     $.ajax({
         method: "GET",
-        url: "./backend",
+        url: "./backend.php",
     }).done(function (data) {
         console.log(data);
     })
