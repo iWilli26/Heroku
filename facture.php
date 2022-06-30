@@ -39,7 +39,6 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->SetXY(20, 63);
 $pdf->Multicell(55, 10, $res[0]["nom"] . ' ' . $res[0]['prenom']);
 $pdf->SetXY(20, 70);
-$pdf->SetFont('Arial', '', 10);
 $pdf->MultiCell(55,10,$res[0]["adresse"]);
 $pdf->SetXY(20, 75);
 $pdf->Multicell(55,10,$res[0]['ville'], 0, 'L', false);
@@ -68,6 +67,9 @@ $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 
 //Remplissage du tableau
 for($i=0;$i<count($res);$i++){
+    if($i==5){
+        break;
+    }
     $pdf->setXY(20, 120+$i*15);
     $pdf->SetFont('Arial', '', 12);
     $pdf->Multicell(170, 15, $i+1 ."", 0, 'L', false);
