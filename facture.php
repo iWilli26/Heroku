@@ -27,7 +27,6 @@ if (mysqli_num_rows($result) > 0) {
 $res = $array_values;
 // echo $res[0]['nom'];
 $conn->close();
-
 require('fpdf.php');
 $pdf = new FPDF();
 $pdf->AddPage();
@@ -53,6 +52,8 @@ $pdf->setXY(20, 105);
 $pdf->SetDrawColor(0, 150, 150);
 $pdf->SetLineWidth(0.7);
 $pdf->Rect(20, 105, 170, 15);
+
+//En tête du tableau
 $pdf->setXY(20, 105);
 $pdf->SetFont('Arial', '', 12);
 $pdf->Multicell(170, 15, "SL.", 0, 'L', false);
@@ -65,16 +66,28 @@ $pdf->Multicell(170, 15, "Qty.", 0, 'L', false);
 $pdf->setXY(170, 105);
 $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 
+//Remplissage du tableau
+for($i=0;$i<count($data);$i++){
+    $this->setXY(20, 120+$i*15);
+    $this->SetFont('Arial', '', 12);
+    $this->Multicell(170, 15, $i, 0, 'L', false);
+    $this->setXY(50, 120+$i*15);
+    $this->Multicell(170, 15, $data[$i]["description"], 0, 'L', false);
+    $this->setXY(120, 120+$i*15);
+    $this->Multicell(170, 15, $data[$i]["prix"]."€", 0, 'L', false);
+    $this->setXY(145, 120+$i*15);
+    $this->Multicell(170, 15, $data[$i]["quantite"], 0, 'L', false);
+    $this->setXY(170, 120+$i*15);
+    $this->Multicell(170, 15, $data[$i]["prix"]*$data[$i]["quantite"]."€", 0, 'L', false);
+    $this->SetDrawColor(75, 75, 75);
+    $this->SetLineWidth(0.5);
+    $this->Line(20, 135+$i*15, 190, 135+$i*15);
+}
 
 $pdf->setXY(20, 120);
-$pdf->SetDrawColor(0, 0, 0);
 $pdf->Multicell(170, 15, "test2", 0, 'L', false);
 $pdf->SetDrawColor(75, 75, 75);
 $pdf->SetLineWidth(0.5);
 $pdf->Line(20, 135, 190, 135);
 
 $pdf->Output();
-
-
-$conn->close();
-$conn->close();
