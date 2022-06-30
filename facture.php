@@ -24,8 +24,8 @@ if ($conn->connect_error) {
             echo "0 results";
         }
  
-        $res = $array_values;
-        echo $res;
+        $test = json_encode($array_values);
+        $res = json_decode($test, true);
         $conn->close();
 
 require('fpdf.php');
@@ -34,7 +34,7 @@ $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->Image('./header.png', 0, 0, 210, 40);
-$pdf->Cell(210, 100, $res, 0, 1, 'C');
+$pdf->Cell(210, 100, $res[0], 0, 1, 'C');
 $pdf->Output();
 
 
