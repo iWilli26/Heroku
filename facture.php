@@ -14,9 +14,8 @@ if (mysqli_num_rows($result) > 0) {
         $array_values[] = $row;
     }
 }
-$res = json_encode($array_values);
+echo json_encode($array_values);
 $conn->close();
-echo $res;
 // require('fpdf.php');
 // $pdf = new FPDF();
 // $pdf->AddPage();
