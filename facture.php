@@ -1,6 +1,4 @@
 <?php
-class pdf extends FPDF
-{
     // Get Heroku ClearDB connection information
     // $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     // $cleardb_server = $cleardb_url["host"];
@@ -29,23 +27,12 @@ class pdf extends FPDF
     //         $conn->close();
     //         break;
     //     }
-    function Header()
-    {
-        // Logo
-        $this->Image('logo.jpg', 10, 6, 30);
-        // Police Arial gras 15
-        $this->SetFont('Arial', 'B', 15);
-        // Décalage à droite
-        $this->Cell(80);
-        // Titre
-        $this->Cell(30, 10, 'Titre', 1, 0, 'C');
-        // Saut de ligne
-        $this->Ln(20);
-    }
-}
+
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 25);
+$pdf->Image('logo.jpg', 10, 6, 30);
+$pdf->Cell(80);
 $pdf->Cell(80, 30, 'INVOICE', 1, 0, 'C');
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->Cell(60, 30, 'Brand name', 1);
