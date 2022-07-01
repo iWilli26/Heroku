@@ -39,13 +39,10 @@ $conn->close();
 <body>
     <?php
     // $element = '<a href="https://hdm-fpdf.herokuapp.com/facture.php?id=".$res[0]["facture_id"]>Facture' . $res[0]["facture_id"] . '</a>';
-    // for ($i; $i < count($res); $i++) {
-    //     echo $element;
-
-    // }
-    foreach ($res as $value) {
-        echo $value["facture_id"];
+    for ($i; $i < count($res); $i++) {
+        echo $i;
     }
+
 
     ?>
 </body>
