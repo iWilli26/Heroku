@@ -94,6 +94,8 @@ for($i=0;$i<5;$i++){
 }
 $pdf->setXY(20, 200);
 $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
+
+//Recap paiement
 $pdf->setXY(140, 200);
 $pdf->MultiCell(70, 15, "Sub Total :");
 $pdf->setXY(140, 210);
@@ -104,7 +106,6 @@ $total=0;
 for($i=0;$i<$count;$i++){
     $total+=$res[$i]["prix"]*$res[$i]["quantite"];
 }
-
 $pdf->MultiCell(35, 15, $total);
 $pdf->setXY(165, 210);
 $pdf->MultiCell(70, 15, $total*$tax, 0, 'L', false);
@@ -116,3 +117,12 @@ $pdf->MultiCell(70, 15, "Total :");
 $pdf->setXY(165, 225);
 $pdf->MultiCell(25, 15, $total*$tax+$total,0,'L',false);
 $pdf->Output();
+
+//Payment Info
+$pdf->setXY(20, 225);
+$pdf->Cell(55, 10, "Payment Info :");
+$pdf->SetFont('Arial', '', 12);
+$pdf->setXY(20, 235);
+$pdf->MultiCell(55, 10, "Account # : " . $res[0]["user_id"]);
+$pdf->setXY(20, 240);
+$pdf->MultiCell(55, 10, "A/C Name : " . $res[0]["banque"]);
