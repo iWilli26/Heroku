@@ -27,7 +27,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/index.js" defer></script>
@@ -37,7 +37,7 @@
 <body>
     <?php
     // $element = '<a href="https://hdm-fpdf.herokuapp.com/facture.php?id=".$res[0]["facture_id"]>Facture' . $res[0]["facture_id"] . '</a>';
-    for ($i; $i < count($res); $i++) {
+    for ($i; $i < 5; $i++) {
         echo 'pute';
     }
 
