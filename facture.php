@@ -65,7 +65,7 @@ $pdf->Multicell(170, 15, "SL.", 0, 'L', false);
 $pdf->setXY(50, 105);
 $pdf->Multicell(170, 15, "Item Description", 0, 'L', false);
 $pdf->setXY(120, 105);
-$pdf->Multicell(170, 15, "Price (€)", 0, 'L', false);
+$pdf->Multicell(170, 15, "Price (euro)", 0, 'L', false);
 $pdf->setXY(145, 105);
 $pdf->Multicell(170, 15, "Qty.", 0, 'L', false);
 $pdf->setXY(170, 105);
@@ -109,7 +109,7 @@ for ($i = 0; $i < $count; $i++) {
 }
 $pdf->MultiCell(35, 15, $total);
 $pdf->setXY(165, 210);
-$pdf->MultiCell(70, 15, $total * $tax, 0, 'L', false);
+$pdf->MultiCell(70, 15, $total * $tax / 100, 0, 'L', false);
 $pdf->SetLineWidth(0.5);
 $pdf->Line(140, 225, 190, 225);
 $pdf->setXY(140, 225);
@@ -135,6 +135,7 @@ $pdf->MultiCell(55, 15, "Bank Details : ");
 $pdf->SetXY(50, 230);
 $pdf->MultiCell(55, 15, "Add you Bank Details");
 
+//Infos légales
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->setXY(20, 250);
 $pdf->Cell(55, 15, "Terms and condition :");
@@ -147,8 +148,12 @@ $pdf->setXY(20, 265);
 $pdf->MultiCell(55, 15, ":)");
 $pdf->setXY(145, 270);
 $pdf->SetFont('Arial', 'B', 12);
+
+//Signature
 $pdf->Cell(55, 15, "Authorized Sign");
-$pdf->Line(143, 273, 178, 273);
+$pdf->Line(144, 273, 179, 273);
+
+//Footer
 $pdf->Image('./footer.png', 0, 282, 210, 15);
 
 
