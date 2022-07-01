@@ -95,7 +95,9 @@ for($i=0;$i<5;$i++){
 $pdf->setXY(20, 200);
 $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
 $pdf->setXY(140, 200);
-$pdf->MultiCell(70, 15, "Sub Total : \nTax : ", 0, 'L', false);
+$pdf->MultiCell(70, 15, "Sub Total :");
+$pdf->setXY(140, 210);
+$pdf->MultiCell(70, 15, "Tax :");
 $pdf->setXY(165, 200);
 $total=0;
 for($i=0;$i<$count;$i++){
