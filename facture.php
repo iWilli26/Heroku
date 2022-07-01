@@ -34,6 +34,7 @@ $pdf = new FPDF();
 //Header
 $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
+$fpdf->SetAutoPageBreak(false);
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->Image('./header.png', 0, 0, 210, 45);
 
@@ -96,6 +97,7 @@ $pdf->setXY(20, 200);
 $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
 
 //Recap paiement
+$tax = 0;
 $pdf->setXY(140, 200);
 $pdf->MultiCell(70, 15, "Sub Total :");
 $pdf->setXY(140, 210);
