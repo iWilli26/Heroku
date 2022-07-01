@@ -38,7 +38,7 @@ $conn->close();
 <body>
     <?php
     // $element = ;
-    for ($i; $i < 5; $i++) {
+    for ($i; $i < count($res); $i++) {
         $url = "https://hdm-fpdf.herokuapp.com/facture.php?id=" . $res[$i]["facture_id"];
         echo '<a href=' . $url . '>Facture de' . $res[$i]["prenom"] . " " . $res[$i]["nom"] . '</a></br>';
     }
