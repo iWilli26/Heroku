@@ -116,7 +116,7 @@ $pdf->setXY(140, 225);
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->MultiCell(70, 15, "Total :");
 $pdf->setXY(165, 225);
-$pdf->MultiCell(25, 15, $total * $tax + $total, 0, 'L', false);
+$pdf->MultiCell(25, 15, $total * $tax / 100 + $total, 0, 'L', false);
 
 //Payment Info
 $pdf->setXY(20, 215);
@@ -148,7 +148,7 @@ $pdf->MultiCell(55, 15, ":)");
 $pdf->setXY(145, 270);
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(55, 15, "Authorized Sign");
-$pdf->Line(145, 275, 180, 25);
+$pdf->Line(145, 275, 180, 275);
 $pdf->Image('./footer.png', 0, 282, 210, 15);
 
 
