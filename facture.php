@@ -133,7 +133,16 @@ $pdf->MultiCell(55, 15, "Bank Details : ");
 $pdf->SetXY(50, 235);
 $pdf->MultiCell(55, 15, "Add you Bank Details");
 
-
+$pdf->SetFont('Arial', 'B', 16);
+$pdf->setXY(20, 250);
+$pdf->Cell(55, 15, "Terms and condition :");
+$pdf->SetFont('Arial', '', 12);
+$pdf->setXY(20, 225);
+$pdf->MultiCell(55, 15, "Payment must be made within 7 days of invoice date.");
+$pdf->setXY(20, 230);
+$pdf->MultiCell(55, 15, "or we get your soul.");
+$pdf->setXY(20, 235);
+$pdf->MultiCell(55, 15, ":)");
 
 
 
