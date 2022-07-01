@@ -34,7 +34,7 @@ $pdf = new FPDF();
 //Header
 $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
-$fpdf->SetAutoPageBreak(false);
+$pdf->SetAutoPageBreak(false);
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->Image('./header.png', 0, 0, 210, 45);
 
