@@ -12,7 +12,7 @@ $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $c
 if ($conn->connect_error) {
     die("Connection to database failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM `facture` WHERE 1";
+$sql = "SELECT * FROM facture, user WHERE facture.user_id=user.user_id";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -23,7 +23,6 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 $res = $array_values;
-echo json_encode($res);
 $conn->close();
 ?>
 <html lang="en">
@@ -40,7 +39,7 @@ $conn->close();
     <?php
     // $element = ;
     for ($i; $i < 5; $i++) {
-        echo '<a href="https://hdm-fpdf.herokuapp.com/facture.php?id=".$res[0]["facture_id"]>Facture ' . $res[0]["facture_id"] . '</a>';
+        echo '<a href="https://hdm-fpdf.herokuapp.com/facture.php?id=".$res[0]["facture_id"]>Facture de' . $res[0]["prenom"] . " " . $res[0]["nom"] . '</a></br>';
     }
 
 
