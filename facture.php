@@ -90,7 +90,8 @@ for($i=0;$i<$count;$i++){
     $pdf->SetLineWidth(0.5);
     $pdf->Line(20, 135+$i*15, 190, 135+$i*15);
 }
-$pdf->MultiCell(20, 195, "Total", 0, 'L', false);
+$pdf->setXY(20, 195);
+$pdf->MultiCell(170, 15, "Total", 0, 'L', false);
 
 
 $pdf->Output();
