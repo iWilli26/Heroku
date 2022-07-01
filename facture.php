@@ -107,8 +107,12 @@ for($i=0;$i<$count;$i++){
 
 $pdf->MultiCell(35, 15, $total);
 $pdf->setXY(165, 210);
-$pdf->MultiCell(70, 15, $total+$total*$tax, 0, 'L', false);
+$pdf->MultiCell(70, 15, $total*$tax, 0, 'L', false);
 $pdf->SetLineWidth(0.5);
-$pdf->Line(140, 220, 190, 220);
-
+$pdf->Line(140, 225, 190, 225);
+$pdf->setXY(140, 235);
+$pdf->SetFont('Arial', 'B', 16);
+$pdf->MultiCell(70, 15, "Total :");
+$pdf->setXY(165, 235);
+$pdf->MultiCell(25, 15, $total*$tax+$total,0,'L',false);
 $pdf->Output();
