@@ -29,7 +29,7 @@ $res = $array_values;
 $conn->close();
 require('fpdf.php');
 $count = count($res);
-$tmp = 1;
+$tmp = 0;
 $pdf = new FPDF();
 while ($count > 0) {
     //Header
@@ -77,20 +77,20 @@ while ($count > 0) {
         $pdf->SetDrawColor(75, 75, 75);
         $pdf->SetLineWidth(0.3);
         $pdf->Line(20, 135 + $i * 15, 190, 135 + $i * 15);
-        $tmp += 1;
         if ($i < $count) {
             $pdf->setXY(20, 120 + $i * 15);
             $pdf->SetFont('Arial', '', 12);
             $pdf->Multicell(170, 15, $tmp . "", 0, 'L', false);
             $pdf->setXY(50, 120 + $i * 15);
-            $pdf->Multicell(170, 15, $res[$i]["description"], 0, 'L', false);
+            $pdf->Multicell(170, 15, $res[$tmp]["description"], 0, 'L', false);
             $pdf->setXY(120, 120 + $i * 15);
-            $pdf->Multicell(170, 15, $res[$i]["prix"], 0, 'L', false);
+            $pdf->Multicell(170, 15, $res[$tmp]["prix"], 0, 'L', false);
             $pdf->setXY(145, 120 + $i * 15);
-            $pdf->Multicell(170, 15, $res[$i]["quantite"], 0, 'L', false);
+            $pdf->Multicell(170, 15, $res[$tmp]["quantite"], 0, 'L', false);
             $pdf->setXY(170, 120 + $i * 15);
-            $pdf->Multicell(170, 15, $res[$i]["prix"] * $res[$i]["quantite"], 0, 'L', false);
+            $pdf->Multicell(170, 15, $res[$tmp]["prix"] * $res[$i]["quantite"], 0, 'L', false);
         }
+        $tmp += 1;
     }
     $pdf->setXY(20, 200);
     $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
@@ -103,7 +103,7 @@ while ($count > 0) {
     $pdf->MultiCell(70, 15, "Tax(" . $tax . "%) :");
     $pdf->setXY(165, 200);
     $total = 0;
-    for ($i = 0; $i < $count; $i++) {
+    for ($i = 0; $i < count($res); $i++) {
         $total += $res[$i]["prix"] * $res[$i]["quantite"];
     }
     $pdf->MultiCell(35, 15, $total);
