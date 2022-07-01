@@ -117,20 +117,20 @@ $pdf->setXY(165, 225);
 $pdf->MultiCell(25, 15, $total * $tax + $total, 0, 'L', false);
 
 //Payment Info
-$pdf->setXY(20, 205);
+$pdf->setXY(20, 215);
 $pdf->Cell(55, 15, "Payment Info :");
 $pdf->SetFont('Arial', '', 12);
-$pdf->setXY(20, 235);
+$pdf->setXY(20, 225);
 $pdf->MultiCell(55, 15, "Account # : ");
-$pdf->setXY(50, 235);
+$pdf->setXY(50, 225);
 $pdf->MultiCell(55, 15, $res[0]["user_id"]);
-$pdf->setXY(20, 240);
+$pdf->setXY(20, 230);
 $pdf->MultiCell(55, 15, "A/C Name : ");
-$pdf->SetXY(50, 240);
+$pdf->SetXY(50, 230);
 $pdf->MultiCell(55, 15, $res[0]["entreprise"]);
-$pdf->setXY(20, 245);
+$pdf->setXY(20, 235);
 $pdf->MultiCell(55, 15, "Bank Details : ");
-$pdf->SetXY(50, 245);
+$pdf->SetXY(50, 235);
 $pdf->MultiCell(55, 15, "Add you Bank Details");
 
 
