@@ -28,11 +28,16 @@ $res = $array_values;
 
 $conn->close();
 require('fpdf.php');
+$count = count($res);
 $pdf = new FPDF();
+
+//Header
 $pdf->AddPage();
 $pdf->SetMargins(0, 0, 0);
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->Image('./header.png', 0, 0, 210, 45);
+
+//En tête de la facture
 $pdf->SetXY(20, 55);
 $pdf->MultiCell(55, 10, "Invoice to: \n", 0, 'L', false);
 $pdf->SetFont('Arial', '', 12);
@@ -66,7 +71,7 @@ $pdf->setXY(170, 105);
 $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 
 //Remplissage du tableau
-for($i=0;$i<count($res);$i++){
+for($i=0;$i<$count;$i++){
     if($i==5){
         break;
     }
@@ -85,7 +90,7 @@ for($i=0;$i<count($res);$i++){
     $pdf->SetLineWidth(0.5);
     $pdf->Line(20, 135+$i*15, 190, 135+$i*15);
 }
-
+$pdf->MultiCell(20, 195, "Total", 0, 'L', false);
 
 
 $pdf->Output();
