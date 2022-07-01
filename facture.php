@@ -147,8 +147,8 @@ $pdf->setXY(20, 265);
 $pdf->MultiCell(55, 15, ":)");
 $pdf->setXY(145, 270);
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(55, 15, "Authorized Sign :");
-$pdf->Line(135, 265, 170, 265);
+$pdf->Cell(55, 15, "Authorized Sign");
+$pdf->Line(145, 275, 180, 25);
 $pdf->Image('./footer.png', 0, 282, 210, 15);
 
 
