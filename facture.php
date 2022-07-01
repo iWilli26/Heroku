@@ -80,9 +80,9 @@ while ($count > 0) {
         if ($i < $count) {
             $pdf->setXY(20, 120 + $i * 15);
             $pdf->SetFont('Arial', '', 12);
-            $pdf->Multicell(170, 15, $tmp . "", 0, 'L', false);
+            $pdf->Multicell(170, 15, $tmp + 1 . "", 0, 'L', false);
             $pdf->setXY(50, 120 + $i * 15);
-            $pdf->Multicell(170, 15, $res[$tmp]["description"], 0, 'L', false);
+            $pdf->Multicell(70, 15, $res[$tmp]["description"], 0, 'L', false);
             $pdf->setXY(120, 120 + $i * 15);
             $pdf->Multicell(170, 15, $res[$tmp]["prix"], 0, 'L', false);
             $pdf->setXY(145, 120 + $i * 15);
