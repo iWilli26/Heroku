@@ -44,9 +44,9 @@ $pdf->SetFont('Arial', '', 12);
 $pdf->SetXY(20, 63);
 $pdf->Multicell(55, 10, $res[0]["nom"] . ' ' . $res[0]['prenom']);
 $pdf->SetXY(20, 70);
-$pdf->MultiCell(55,10,$res[0]["adresse"]);
+$pdf->MultiCell(55, 10, $res[0]["adresse"]);
 $pdf->SetXY(20, 75);
-$pdf->Multicell(55,10,$res[0]['ville'], 0, 'L', false);
+$pdf->Multicell(55, 10, $res[0]['ville'], 0, 'L', false);
 $pdf->setXY(140, 65);
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Multicell(30, 10, "Invoice :\nDate : ", 0, 'L', false);
@@ -64,32 +64,32 @@ $pdf->Multicell(170, 15, "SL.", 0, 'L', false);
 $pdf->setXY(50, 105);
 $pdf->Multicell(170, 15, "Item Description", 0, 'L', false);
 $pdf->setXY(120, 105);
-$pdf->Multicell(170, 15, "Price (euro)", 0, 'L', false);
+$pdf->Multicell(170, 15, "Price (€)", 0, 'L', false);
 $pdf->setXY(145, 105);
 $pdf->Multicell(170, 15, "Qty.", 0, 'L', false);
 $pdf->setXY(170, 105);
 $pdf->Multicell(170, 15, "Total", 0, 'L', false);
 
 //Remplissage du tableau
-for($i=0;$i<5;$i++){
-    if($i==5){
+for ($i = 0; $i < 5; $i++) {
+    if ($i == 5) {
         break;
     }
     $pdf->SetDrawColor(75, 75, 75);
     $pdf->SetLineWidth(0.3);
-    $pdf->Line(20, 135+$i*15, 190, 135+$i*15);
-    if($i<$count){
-        $pdf->setXY(20, 120+$i*15);
+    $pdf->Line(20, 135 + $i * 15, 190, 135 + $i * 15);
+    if ($i < $count) {
+        $pdf->setXY(20, 120 + $i * 15);
         $pdf->SetFont('Arial', '', 12);
-        $pdf->Multicell(170, 15, $i+1 ."", 0, 'L', false);
-        $pdf->setXY(50, 120+$i*15);
+        $pdf->Multicell(170, 15, $i + 1 . "", 0, 'L', false);
+        $pdf->setXY(50, 120 + $i * 15);
         $pdf->Multicell(170, 15, $res[$i]["description"], 0, 'L', false);
-        $pdf->setXY(120, 120+$i*15);
+        $pdf->setXY(120, 120 + $i * 15);
         $pdf->Multicell(170, 15, $res[$i]["prix"], 0, 'L', false);
-        $pdf->setXY(145, 120+$i*15);
+        $pdf->setXY(145, 120 + $i * 15);
         $pdf->Multicell(170, 15, $res[$i]["quantite"], 0, 'L', false);
-        $pdf->setXY(170, 120+$i*15);
-        $pdf->Multicell(170, 15, $res[$i]["prix"]*$res[$i]["quantite"], 0, 'L', false);
+        $pdf->setXY(170, 120 + $i * 15);
+        $pdf->Multicell(170, 15, $res[$i]["prix"] * $res[$i]["quantite"], 0, 'L', false);
     }
 }
 $pdf->setXY(20, 200);
@@ -99,30 +99,38 @@ $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
 $pdf->setXY(140, 200);
 $pdf->MultiCell(70, 15, "Sub Total :");
 $pdf->setXY(140, 210);
-$tax=0;
+$tax = 0;
 $pdf->MultiCell(70, 15, "Tax(0%) :");
 $pdf->setXY(165, 200);
-$total=0;
-for($i=0;$i<$count;$i++){
-    $total+=$res[$i]["prix"]*$res[$i]["quantite"];
+$total = 0;
+for ($i = 0; $i < $count; $i++) {
+    $total += $res[$i]["prix"] * $res[$i]["quantite"];
 }
 $pdf->MultiCell(35, 15, $total);
 $pdf->setXY(165, 210);
-$pdf->MultiCell(70, 15, $total*$tax, 0, 'L', false);
+$pdf->MultiCell(70, 15, $total * $tax, 0, 'L', false);
 $pdf->SetLineWidth(0.5);
 $pdf->Line(140, 225, 190, 225);
 $pdf->setXY(140, 225);
 $pdf->SetFont('Arial', 'B', 16);
 $pdf->MultiCell(70, 15, "Total :");
 $pdf->setXY(165, 225);
-$pdf->MultiCell(25, 15, $total*$tax+$total,0,'L',false);
+$pdf->MultiCell(25, 15, $total * $tax + $total, 0, 'L', false);
 $pdf->Output();
 
 //Payment Info
 $pdf->setXY(20, 225);
-$pdf->Cell(55, 10, "Payment Info :");
+$pdf->Cell(55, 15, "Payment Info :");
 $pdf->SetFont('Arial', '', 12);
 $pdf->setXY(20, 235);
-$pdf->MultiCell(55, 10, "Account # : " . $res[0]["user_id"]);
+$pdf->MultiCell(55, 15, "Account # : " . $res[0]["user_id"]);
+$pdf->setXY(30, 235);
+$pdf->MultiCell(55, 15, $res[0]["user_id"]);
 $pdf->setXY(20, 240);
-$pdf->MultiCell(55, 10, "A/C Name : " . $res[0]["banque"]);
+$pdf->MultiCell(55, 15, "A/C Name : " . $res[0]["banque"]);
+$pdf->SetXY(30, 240);
+$pdf->MultiCell(55, 15, $res[0]["entreprise"]);
+$pdf->setXY(20, 245);
+$pdf->MultiCell(55, 15, "Bank Details : ");
+$pdf->SetXY(30, 245);
+$pdf->MultiCell(55, 15, "Add you Bank Details");
