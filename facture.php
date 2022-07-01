@@ -146,7 +146,7 @@ $pdf->MultiCell(55, 15, "or we get your soul.");
 $pdf->setXY(20, 265);
 $pdf->MultiCell(55, 15, ":)");
 
-
+$pdf->Image('./footer.png', 0, 282, 210, 15);
 
 
 
