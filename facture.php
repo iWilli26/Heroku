@@ -123,15 +123,15 @@ $pdf->Cell(55, 15, "Payment Info :");
 $pdf->SetFont('Arial', '', 12);
 $pdf->setXY(20, 235);
 $pdf->MultiCell(55, 15, "Account # : " . $res[0]["user_id"]);
-$pdf->setXY(30, 235);
+$pdf->setXY(45, 235);
 $pdf->MultiCell(55, 15, $res[0]["user_id"]);
 $pdf->setXY(20, 240);
 $pdf->MultiCell(55, 15, "A/C Name : " . $res[0]["banque"]);
-$pdf->SetXY(30, 240);
+$pdf->SetXY(45, 240);
 $pdf->MultiCell(55, 15, $res[0]["entreprise"]);
 $pdf->setXY(20, 245);
 $pdf->MultiCell(55, 15, "Bank Details : ");
-$pdf->SetXY(30, 245);
+$pdf->SetXY(45, 245);
 $pdf->MultiCell(55, 15, "Add you Bank Details");
 
 
