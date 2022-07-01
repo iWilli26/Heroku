@@ -97,7 +97,7 @@ $pdf->setXY(20, 200);
 $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
 
 //Recap paiement
-$tax = 0;
+$tax = 2;
 $pdf->setXY(140, 200);
 $pdf->MultiCell(70, 15, "Sub Total :");
 $pdf->setXY(140, 210);
@@ -148,7 +148,7 @@ $pdf->MultiCell(55, 15, ":)");
 $pdf->setXY(145, 270);
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(55, 15, "Authorized Sign");
-$pdf->Line(145, 275, 180, 275);
+$pdf->Line(143, 273, 178, 273);
 $pdf->Image('./footer.png', 0, 282, 210, 15);
 
 
