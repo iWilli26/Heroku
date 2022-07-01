@@ -99,8 +99,7 @@ $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
 $pdf->setXY(140, 200);
 $pdf->MultiCell(70, 15, "Sub Total :");
 $pdf->setXY(140, 210);
-$tax = 0;
-$pdf->MultiCell(70, 15, "Tax(0%) :");
+$pdf->MultiCell(70, 15, "Tax(" . $tax . "%) :");
 $pdf->setXY(165, 200);
 $total = 0;
 for ($i = 0; $i < $count; $i++) {
@@ -123,15 +122,15 @@ $pdf->Cell(55, 15, "Payment Info :");
 $pdf->SetFont('Arial', '', 12);
 $pdf->setXY(20, 235);
 $pdf->MultiCell(55, 15, "Account # : " . $res[0]["user_id"]);
-$pdf->setXY(45, 235);
+$pdf->setXY(50, 235);
 $pdf->MultiCell(55, 15, $res[0]["user_id"]);
 $pdf->setXY(20, 240);
 $pdf->MultiCell(55, 15, "A/C Name : " . $res[0]["banque"]);
-$pdf->SetXY(45, 240);
+$pdf->SetXY(50, 240);
 $pdf->MultiCell(55, 15, $res[0]["entreprise"]);
 $pdf->setXY(20, 245);
 $pdf->MultiCell(55, 15, "Bank Details : ");
-$pdf->SetXY(45, 245);
+$pdf->SetXY(50, 245);
 $pdf->MultiCell(55, 15, "Add you Bank Details");
 
 
