@@ -64,7 +64,7 @@ $pdf->Multicell(170, 15, "SL.", 0, 'L', false);
 $pdf->setXY(50, 105);
 $pdf->Multicell(170, 15, "Item Description", 0, 'L', false);
 $pdf->setXY(120, 105);
-$pdf->Multicell(170, 15, "Price", 0, 'L', false);
+$pdf->Multicell(170, 15, "Price (euro)", 0, 'L', false);
 $pdf->setXY(145, 105);
 $pdf->Multicell(170, 15, "Qty.", 0, 'L', false);
 $pdf->setXY(170, 105);
@@ -76,7 +76,7 @@ for($i=0;$i<5;$i++){
         break;
     }
     $pdf->SetDrawColor(75, 75, 75);
-    $pdf->SetLineWidth(0.5);
+    $pdf->SetLineWidth(0.3);
     $pdf->Line(20, 135+$i*15, 190, 135+$i*15);
     if($i<$count){
         $pdf->setXY(20, 120+$i*15);
@@ -92,8 +92,15 @@ for($i=0;$i<5;$i++){
         $pdf->Multicell(170, 15, $res[$i]["prix"]*$res[$i]["quantite"], 0, 'L', false);
     }
 }
-$pdf->setXY(20, 195);
-$pdf->MultiCell(170, 15, "Total", 0, 'L', false);
-
-
+$pdf->setXY(20, 200);
+$pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
+$pdf->setXY(140, 200);
+$pdf->MultiCell(70, 15, "Sub Total : \nTax : ", 0, 'L', false);
+$pdf->setXY(165, 200);
+$total=0;
+for($i=0;$i<$count;$i++){
+    $total+=$res[$i]["prix"]*$res[$i]["quantite"];
+}
+$tax=0;
+$pdf->MultiCell(35, 15, $total."\n".$total+$total*$tax, 0, 'L', false);
 $pdf->Output();
