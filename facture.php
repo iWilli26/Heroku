@@ -97,12 +97,16 @@ $pdf->MultiCell(170, 15, "Thank you for your business", 0, 'L', false);
 $pdf->setXY(140, 200);
 $pdf->MultiCell(70, 15, "Sub Total :");
 $pdf->setXY(140, 210);
-$pdf->MultiCell(70, 15, "Tax :");
+$tax=0;
+$pdf->MultiCell(70, 15, "Tax(0%) :");
 $pdf->setXY(165, 200);
 $total=0;
 for($i=0;$i<$count;$i++){
     $total+=$res[$i]["prix"]*$res[$i]["quantite"];
 }
-$tax=0;
-$pdf->MultiCell(35, 15, $total."\n".$total+$total*$tax, 0, 'L', false);
+
+$pdf->MultiCell(35, 15, $total);
+$pdf->setXY(140, 210);
+$pdf->MultiCell(70, 15, $total+$total*$tax, 0, 'L', false);
+
 $pdf->Output();
