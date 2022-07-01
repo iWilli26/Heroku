@@ -106,7 +106,9 @@ for($i=0;$i<$count;$i++){
 }
 
 $pdf->MultiCell(35, 15, $total);
-$pdf->setXY(140, 210);
+$pdf->setXY(165, 210);
 $pdf->MultiCell(70, 15, $total+$total*$tax, 0, 'L', false);
+$pdf->SetLineWidth(0.5);
+$pdf->Line(140, 220, 190, 220);
 
 $pdf->Output();
