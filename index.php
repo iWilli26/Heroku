@@ -43,7 +43,7 @@ $conn->close();
     //     echo $element;
 
     // }
-    foreach ($res as $key => $value) {
+    foreach ($res as $value) {
         echo $value["facture_id"];
     }
 
