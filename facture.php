@@ -117,7 +117,7 @@ $pdf->setXY(165, 225);
 $pdf->MultiCell(25, 15, $total * $tax + $total, 0, 'L', false);
 
 //Payment Info
-$pdf->setXY(20, 215);
+$pdf->setXY(20, 205);
 $pdf->Cell(55, 15, "Payment Info :");
 $pdf->SetFont('Arial', '', 12);
 $pdf->setXY(20, 235);
